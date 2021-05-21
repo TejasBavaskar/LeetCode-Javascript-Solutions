@@ -20,7 +20,7 @@ var isSameTree = function(root, subRoot) {
 }
 
 //------------------ OR ----------------------
-//O(m * n)
+//O(m * n) => using Preorder of Tree
 var isSubtree = function(root, subRoot) {
     let subTreePreorder = [];
     var preorder = function(root) {
