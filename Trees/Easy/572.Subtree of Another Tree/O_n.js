@@ -22,51 +22,51 @@ var isSameTree = function(root, subRoot) {
 //------------------ OR ----------------------
 //O(m * n)
 var isSubtree = function(root, subRoot) {
-  let subTreeInorder = [];
-  var inorder = function(root) {
-          if(!root) {
-              subTreeInorder.push(undefined);
-              return;
-          }
-          subTreeInorder.push(root.val);
-          inorder(root.left);
-          inorder(root.right);
-      }
-  inorder(subRoot);
+    let subTreePreorder = [];
+    var preorder = function(root) {
+            if(!root) {
+                subTreePreorder.push(undefined);
+                return;
+            }
+            subTreePreorder.push(root.val);
+            preorder(root.left);
+            preorder(root.right);
+        }
+    preorder(subRoot);
 
-  var checkSubTree = function(root, subRoot) {
-      if(!root){
-          return false;
-      } 
-      
-      if(root.val === subRoot.val) {
-          let inorderData = [];
-          var inorder = function(root) {  // calling inorder for m no. of times in case of duplicate elements in tree
-              if(!root) {
-                  inorderData.push(undefined);
-                  return null;
-              }
-              inorderData.push(root.val);
-              let l = inorder(root.left);
-              let r = inorder(root.right);
-          }
-          
-          inorder(root);
-          console.log(inorderData, subTreeInorder);    
-          if(JSON.stringify(inorderData) === JSON.stringify(subTreeInorder)) {
-              console.log('True');
-              return true;
-          }
-      }
-      
-      let left = checkSubTree(root.left, subRoot);
-      let right = checkSubTree(root.right, subRoot);
+    var checkSubTree = function(root, subRoot) {
+        if(!root){
+            return false;
+        } 
         
-      if(left || right) {
-          return true;
-      }
-      return false;
-  }
+        if(root.val === subRoot.val) {
+            let preorderData = [];
+            var preorder = function(root) { // calling inorder for m no. of times in case of duplicate elements in tree
+                if(!root) {
+                    preorderData.push(undefined);
+                    return null;
+                }
+                preorderData.push(root.val);
+                let l = preorder(root.left);
+                let r = preorder(root.right);
+            }
 
-  return checkSubTree(root, subRoot)
+            preorder(root);
+            
+            if(JSON.stringify(preorderData) === JSON.stringify(subTreePreorder)) {
+                console.log('True');
+                return true;
+            }
+        }
+        
+        let left = checkSubTree(root.left, subRoot);
+        let right = checkSubTree(root.right, subRoot);
+          
+        if(left || right) {
+            return true;
+        }
+        return false;
+    }
+
+    return checkSubTree(root, subRoot)
 };
