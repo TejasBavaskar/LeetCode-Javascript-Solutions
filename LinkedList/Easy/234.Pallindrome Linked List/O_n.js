@@ -12,7 +12,7 @@ var isPalindrome = function(head) {
 };
 
 //-------------- OR ---------------
-// O(n) => Reursive
+// O(n) => Reursive  space complexity = O(1)
 var isPalindrome = function(head) {
   let temp = head;
   
