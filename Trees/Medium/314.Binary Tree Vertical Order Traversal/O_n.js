@@ -1,4 +1,4 @@
-//O(n)
+//O(n) => Using BFS
 var verticalOrder = function (root) {
   if (!root) {
     return [];
