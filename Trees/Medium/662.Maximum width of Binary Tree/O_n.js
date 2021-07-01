@@ -9,7 +9,7 @@ var widthOfBinaryTree = function (root) {
     root = root.right;
   }
   // ---> till here, code will reach to root which has both left and right branch.
-  //Because for root with ingle branch max width will always be 1
+  //Because for root with single branch, max width will always be 1.
 
   let queue = [];
   queue.push([root, 1]);
