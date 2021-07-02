@@ -12,7 +12,7 @@ var widthOfBinaryTree = function (root) {
   //Because for root with single branch, max width will always be 1.
 
   let queue = [];
-  queue.push([root, 1]);
+  queue.push([root, 1]);  //[root, currentPos]
 
   let max = Number.MIN_VALUE;
 
@@ -22,16 +22,16 @@ var widthOfBinaryTree = function (root) {
     let rightIndex = null;
 
     for (let i = 0; i < size; i++) {
-      let [temp, level] = queue.shift();
+      let [temp, currentPos] = queue.shift();
 
       if (i === 0) {
-        leftIndex = level;
+        leftIndex = currentPos;
       } else if (i === size - 1) {
-        rightIndex = level;
+        rightIndex = currentPos;
       }
 
-      temp.left && queue.push([temp.left, 2 * level]);
-      temp.right && queue.push([temp.right, 2 * level + 1]);
+      temp.left && queue.push([temp.left, 2 * currentPos]);
+      temp.right && queue.push([temp.right, 2 * currentPos + 1]);
     }
 
     let diff = 0;
