@@ -2,11 +2,11 @@
 var threeSum = function (nums) {
   let result = [];
   let zeroFlag = false;
-  for (let i = 0; i < nums.length - 2; i++) {
+  for (let i = 0; i < nums.length - 2; i++) { //n
     let x = nums[i];
-    for (let j = i + 1; j < nums.length - 1; j++) {
+    for (let j = i + 1; j < nums.length - 1; j++) { //n
       let y = nums[j];
-      for (let k = j + 1; k < nums.length; k++) {
+      for (let k = j + 1; k < nums.length; k++) { //n
         let z = nums[k];
         let sum = x + y + z;
         if (sum === 0) {
