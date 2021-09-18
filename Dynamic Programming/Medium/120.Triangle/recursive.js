@@ -1,3 +1,4 @@
+//O(2^n)
 var minimumTotal = function (triangle) {
   var solve = function (i, j) {
     if (i >= triangle.length) {
