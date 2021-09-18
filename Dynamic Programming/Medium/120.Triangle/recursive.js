@@ -1,4 +1,5 @@
 //O(2^n)
+//Time Limit Exceeded
 var minimumTotal = function (triangle) {
   var solve = function (i, j) {
     if (i >= triangle.length) {
